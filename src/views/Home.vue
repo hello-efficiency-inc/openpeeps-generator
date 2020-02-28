@@ -13,7 +13,7 @@
         <div class="row">
           <div class="col-md-6 mx-auto">
             <div class="peep-img-container d-flex">
-              <Peep :accessories="accessory" :body="body" :head="head" :facial-hair="facial" />
+              <Peep :accessories="accessory" :body="body" :head="head" :facial-hair="facial" :face="face" />
             </div>
           </div>
         </div>
@@ -28,8 +28,17 @@
             <b-form-group label="Head" label-cols-sm="4" label-cols-lg="3">
               <b-form-select v-model="head" :options="headOptions" label-field="Head" />
             </b-form-group>
+            <b-form-group label="Face" label-cols-sm="4" label-cols-lg="3">
+              <b-form-select v-model="face" :options="faceOptions" label-field="Head" />
+            </b-form-group>
             <b-form-group label="Facial hair" label-cols-sm="4" label-cols-lg="3">
               <b-form-select v-model="facial" :options="facialOptions" label-field="Head" />
+            </b-form-group>
+            <b-form-group>
+              <button type="button" class="btn btn-block btn-black" @click="generateRandom">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg>
+                Random
+              </button>
             </b-form-group>
           </div>
         </div>
@@ -76,6 +85,7 @@ export default {
     return {
       body: 'BodyTee1',
       head: 'HeadAfro',
+      face: 'FaceSmile',
       accessory: null,
       facial: null
     }
@@ -146,16 +156,50 @@ export default {
             text: item
           }
         })
+    },
+    faceOptions () {
+      return Object.keys(Vue.options.components)
+        .filter(item => {
+          return item.startsWith('Face')
+        })
+        .map(item => {
+          return {
+            value: item,
+            text: item
+          }
+        })
+    }
+  },
+  methods: {
+    generateRandom () {
+      this.head = this.headOptions[Math.floor(Math.random() * this.headOptions.length)].value
+      this.body = this.bodyOptions[Math.floor(Math.random() * this.bodyOptions.length)].value
+      this.accessory = this.accessoryOptions[Math.floor(Math.random() * this.accessoryOptions.length)].value
+      this.facial = this.facialOptions[Math.floor(Math.random() * this.facialOptions.length)].value
+      this.face = this.faceOptions[Math.floor(Math.random() * this.faceOptions.length)].value
     }
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .peep-img-container {
   max-height: 500px;
 
   svg {
     max-height: 500px;
+  }
+}
+
+.btn-black {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+  font-weight: 600;
+  text-transform: uppercase;
+  outline: none;
+
+  &:hover {
+    color: #fff;
   }
 }
 
