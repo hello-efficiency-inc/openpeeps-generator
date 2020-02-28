@@ -13,7 +13,8 @@
         <div class="row">
           <div class="col-md-6 mx-auto">
             <div class="peep-img-container d-flex">
-              <Peep :accessories="accessory" :body="body" :head="head" :facial-hair="facial" :face="face" />
+              <Peep ref="peep" :accessories="accessory" :body="body" :head="head" :facial-hair="facial" :face="face" />
+              <canvas class="d-none" width="500" height="500" ref="canvas"></canvas>
             </div>
           </div>
         </div>
@@ -38,6 +39,12 @@
               <button type="button" class="btn btn-block btn-black" @click="generateRandom">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg>
                 Random
+              </button>
+            </b-form-group>
+            <b-form-group>
+              <button type="button" class="btn btn-block btn-black" @click="saveAsPng">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Png
               </button>
             </b-form-group>
           </div>
@@ -78,6 +85,7 @@
 </template>
 <script>
 import Vue from 'vue'
+import Canvg from 'canvg'
 
 export default {
   name: 'Home',
@@ -177,6 +185,20 @@ export default {
       this.accessory = this.accessoryOptions[Math.floor(Math.random() * this.accessoryOptions.length)].value
       this.facial = this.facialOptions[Math.floor(Math.random() * this.facialOptions.length)].value
       this.face = this.faceOptions[Math.floor(Math.random() * this.faceOptions.length)].value
+    },
+    async saveAsPng () {
+      const html = this.$refs.peep.$el.outerHTML
+      var context = this.$refs.canvas.getContext('2d')
+      var v = await Canvg.from(context, html)
+      v.render()
+      this.$refs.canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob)
+        const link = document.createElement('a')
+        link.href = url
+        link.setAttribute('download', 'getpeeps.png')
+        document.body.appendChild(link)
+        link.click()
+      }, 'image/png')
     }
   }
 }
