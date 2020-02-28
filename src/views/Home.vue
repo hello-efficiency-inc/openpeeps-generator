@@ -45,9 +45,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 mx-auto">
-            <p class="mb-2">Illustration design  by <a href="https://helloefficiency.com">Pablo Stanley.</a></p>
-            <p class="mb-2">Developed by <a href="https://helloefficiency.com">Hello Efficiency</a></p>
-            <p>Sketch library can be found at <a href="https://openpeeps.com">openpeeps.com</a> </p>
+            <p class="mb-2">Illustration design  by <a href="https://www.pablostanley.com/" target="_blank">Pablo Stanley.</a></p>
+            <p class="mb-2">Developed by <a href="https://helloefficiency.com" target="_blank">Hello Efficiency</a></p>
+            <p>Sketch library can be found at <a href="https://openpeeps.com" target="_blank">openpeeps.com</a> </p>
           </div>
         </div>
       </div>
