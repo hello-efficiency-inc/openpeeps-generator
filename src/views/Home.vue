@@ -198,6 +198,7 @@ export default {
         link.setAttribute('download', 'getpeeps.png')
         document.body.appendChild(link)
         link.click()
+        document.body.removeChild(link)
       }, 'image/png')
     }
   }
