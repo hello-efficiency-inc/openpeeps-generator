@@ -14,7 +14,7 @@
           <div class="col-md-6 mx-auto">
             <div class="peep-img-container d-flex">
               <Peep ref="peep" :accessories="accessory" :body="body" :head="head" :facial-hair="facial" :face="face" />
-              <canvas class="d-none" width="500" height="500" ref="canvas"></canvas>
+              <canvas class="d-none" width="600" height="600" ref="canvas"></canvas>
             </div>
           </div>
         </div>
