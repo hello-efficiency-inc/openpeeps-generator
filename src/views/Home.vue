@@ -85,6 +85,7 @@
 </template>
 <script>
 import Vue from 'vue'
+import dayjs from 'dayjs'
 import Canvg from 'canvg'
 
 export default {
@@ -195,7 +196,7 @@ export default {
         const url = URL.createObjectURL(blob)
         const link = document.createElement('a')
         link.href = url
-        link.setAttribute('download', 'getpeeps.png')
+        link.setAttribute('download', `getpeeps-${dayjs().valueOf()}.png`)
         document.body.appendChild(link)
         link.click()
         document.body.removeChild(link)
