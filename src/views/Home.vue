@@ -230,6 +230,10 @@ export default {
 .title {
   font-family: "Playfair Display";
   font-weight: 900;
+
+  @media (max-width: 800px) {
+    font-size: 26px;
+  }
 }
 
 .alt-text {
