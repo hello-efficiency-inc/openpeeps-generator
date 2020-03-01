@@ -1,6 +1,6 @@
 # Get peeps Avatar generators
 
-A simple Vue app to generate avatar using [Open peeps](https://openpeeps.com) illustrations made by [Pablo Stanley](https://pablostanley.com).
+A simple progressive Vue web app to generate avatar using [Open peeps](https://openpeeps.com) illustrations made by [Pablo Stanley](https://pablostanley.com).
 
 ## Project setup
 ```
