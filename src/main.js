@@ -12,7 +12,7 @@ Vue.config.productionTip = false
 
 Vue.use(BootstrapVue)
 Vue.use(VueAnalytics, {
-  id: process.env.ANALYTICS
+  id: process.env.analytics
 })
 
 const files = require.context('./', true, /\.vue$/i)
