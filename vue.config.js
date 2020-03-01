@@ -8,11 +8,17 @@ module.exports = {
     appleMobileWebAppStatusBarStyle: 'black',
 
     // configure the workbox plugin
-    workboxPluginMode: 'InjectManifest',
+    workboxPluginMode: 'GenerateSW',
     workboxOptions: {
-      // swSrc is required in InjectManifest mode.
-      swSrc: './sw.js'
-      // ...other Workbox options...
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/fonts\.gstatic\.com/,
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'google-fonts-webfonts'
+          }
+        }
+      ]
     }
   }
 }
