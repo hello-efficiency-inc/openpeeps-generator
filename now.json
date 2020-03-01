@@ -1,0 +1,7 @@
+{
+  "build": {
+    "env": {
+      "VUE_APP_ANALYTICS": "@analytics"
+    }
+  }
+}
