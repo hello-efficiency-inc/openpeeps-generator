@@ -5,6 +5,14 @@ module.exports = {
     themeColor: '#fff',
     msTileColor: '#fff',
     appleMobileWebAppCapable: 'yes',
-    appleMobileWebAppStatusBarStyle: 'black'
+    appleMobileWebAppStatusBarStyle: 'black',
+
+    // configure the workbox plugin
+    workboxPluginMode: 'InjectManifest',
+    workboxOptions: {
+      // swSrc is required in InjectManifest mode.
+      swSrc: './sw.js'
+      // ...other Workbox options...
+    }
   }
 }
