@@ -29,6 +29,10 @@
       content="A free online avatar generator for anyone to make their beautiful personal avatar using Open peeps illustrations">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>Get Peeps - Free online avatar generator</title>
+    <script>
+      window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+      ga('create', '<%= VUE_APP_ANALYTICS %>', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+    </script>
   </head>
   <body>
     <noscript>
