@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 mx-auto">
-            <h1 class="text-center title">
+            <h1 class="text-center title mb-5">
               <i>Open Peeps</i>
               <span class="ml-3 alt-text">generator</span>
             </h1>
@@ -12,14 +12,20 @@
         </div>
         <div class="row">
           <div class="col-md-6 mx-auto">
-            <div class="peep-img-container d-flex">
-              <Peep ref="peep" :accessories="accessory" :body="body" :head="head" :facial-hair="facial" :face="face" />
+            <div class="peep-img-container d-flex mb-5">
+              <Peep ref="peep" :accessories="accessory" :body="body" :head="head" :facial-hair="facial" :face="face" :transparent="transparentOption" :background="background" />
               <canvas class="d-none" width="600" height="600" ref="canvas"></canvas>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mx-auto">
+            <b-form-group label="Background transparent?" label-cols-sm="4" label-cols-lg="5">
+              <b-form-radio-group class="mt-2" v-model="transparent" :options="options" />
+            </b-form-group>
+            <b-form-group label="Background color" v-if="transparent === 'yes'" label-cols-sm="4" label-cols-lg="5">
+              <input type="color" class="mt-2" v-model="background" value="#ffffff">
+            </b-form-group>
             <b-form-group label="🕶️ Accessories" label-cols-sm="4" label-cols-lg="3">
               <b-form-select v-model="accessory" :options="accessoryOptions" label-field="Head" />
             </b-form-group>
@@ -92,6 +98,12 @@ export default {
   name: 'Home',
   data () {
     return {
+      background: '#ffffff',
+      transparent: 'no',
+      options: [
+        { text: 'Yes', value: 'yes' },
+        { text: 'No', value: 'no' }
+      ],
       body: 'BodyTee1',
       head: 'HeadAfro',
       face: 'FaceSmile',
@@ -99,10 +111,10 @@ export default {
       facial: null
     }
   },
-  track () {
-    this.$ga.page('/')
-  },
   computed: {
+    transparentOption () {
+      return this.transparent === 'yes'
+    },
     accessoryOptions () {
       const options = [
         {
