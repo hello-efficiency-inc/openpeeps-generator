@@ -1,6 +1,6 @@
 <template>
     <svg width="100%" height="100%" viewBox="0 0 1136 1533" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-      <path v-if="transparent" d="M0 0H1136V1533H0V0Z" :fill="background"/>
+      <path v-if="transparent" d="M0 0H1366V1533H-1366V0Z" :fill="background"/>
       <component :is="body"/>
       <component :is="head"/>
       <component :is="face"/>
