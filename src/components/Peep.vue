@@ -26,7 +26,7 @@ export default {
     },
     transparent: {
       type: Boolean,
-      default: false,
+      default: false
     },
     face: {
       type: String,
