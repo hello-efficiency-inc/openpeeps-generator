@@ -20,7 +20,7 @@
         </div>
         <div class="row">
           <div class="col-md-6 mx-auto">
-            <b-form-group label="Accessories" label-cols-sm="4" label-cols-lg="3">
+            <b-form-group label="🕶️ Accessories" label-cols-sm="4" label-cols-lg="3">
               <b-form-select v-model="accessory" :options="accessoryOptions" label-field="Head" />
             </b-form-group>
             <b-form-group label="Body" label-cols-sm="4" label-cols-lg="3">
@@ -29,10 +29,10 @@
             <b-form-group label="Head" label-cols-sm="4" label-cols-lg="3">
               <b-form-select v-model="head" :options="headOptions" label-field="Head" />
             </b-form-group>
-            <b-form-group label="Face" label-cols-sm="4" label-cols-lg="3">
+            <b-form-group label="🤔 😀 Face" label-cols-sm="4" label-cols-lg="3">
               <b-form-select v-model="face" :options="faceOptions" label-field="Head" />
             </b-form-group>
-            <b-form-group label="Facial hair" label-cols-sm="4" label-cols-lg="3">
+            <b-form-group label="🧔 Facial hair" label-cols-sm="4" label-cols-lg="3">
               <b-form-select v-model="facial" :options="facialOptions" label-field="Head" />
             </b-form-group>
             <b-form-group>
@@ -214,6 +214,14 @@ export default {
 
   svg {
     max-height: 500px;
+
+    @media (max-width: 800px) {
+      max-height: 350px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    max-height: 350px;
   }
 }
 
