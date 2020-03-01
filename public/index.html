@@ -29,13 +29,6 @@
       content="A free online avatar generator for anyone to make their beautiful personal avatar using Open peeps illustrations">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>Get Peeps - Free online avatar generator</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=<%= VUE_APP_ANALYTICS %>"></script>
     <script>
@@ -43,7 +36,14 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', '<%= VUE_APP_ANALYTICS %>');
+      gtag('config', '<%= VUE_APP_ANALYTICS %>', { 'anonymize_ip': true });
     </script>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
   </body>
 </html>
