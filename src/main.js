@@ -12,7 +12,8 @@ Vue.config.productionTip = false
 
 Vue.use(BootstrapVue)
 Vue.use(VueAnalytics, {
-  id: process.env.analytics
+  id: process.env.analytics,
+  router
 })
 
 const files = require.context('./', true, /\.vue$/i)

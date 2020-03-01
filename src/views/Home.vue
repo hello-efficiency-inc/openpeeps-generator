@@ -99,6 +99,9 @@ export default {
       facial: null
     }
   },
+  track () {
+    this.$ga.page('/')
+  },
   computed: {
     accessoryOptions () {
       const options = [
