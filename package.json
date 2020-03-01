@@ -1,6 +1,5 @@
 {
   "name": "getpeeps",
-  "productName": "Get Peeps",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -23,7 +22,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.2.0",
     "@vue/cli-plugin-eslint": "^4.2.0",
-    "@vue/cli-plugin-pwa": "^4.2.0",
+    "@vue/cli-plugin-pwa": "^4.2.3",
     "@vue/cli-plugin-router": "^4.2.0",
     "@vue/cli-plugin-vuex": "^4.2.0",
     "@vue/cli-service": "^4.2.0",
@@ -38,5 +37,6 @@
     "sass": "^1.25.0",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "productName": "Get Peeps"
 }
