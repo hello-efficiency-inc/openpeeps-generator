@@ -20,10 +20,10 @@
         </div>
         <div class="row">
           <div class="col-md-6 mx-auto">
-            <b-form-group label="Background transparent?" label-cols-sm="4" label-cols-lg="5">
+            <b-form-group label="Transparent background" label-cols-sm="4" label-cols-lg="5">
               <b-form-radio-group class="mt-2" v-model="transparent" :options="options" />
             </b-form-group>
-            <b-form-group label="Background color" v-if="transparent === 'yes'" label-cols-sm="4" label-cols-lg="5">
+            <b-form-group label="Background color" v-if="transparent === 'no'" label-cols-sm="4" label-cols-lg="5">
               <input type="color" class="mt-2" v-model="background" value="#ffffff">
             </b-form-group>
             <b-form-group label="🕶️ Accessories" label-cols-sm="4" label-cols-lg="3">
@@ -99,7 +99,7 @@ export default {
   data () {
     return {
       background: '#ffffff',
-      transparent: 'no',
+      transparent: 'yes',
       options: [
         { text: 'Yes', value: 'yes' },
         { text: 'No', value: 'no' }
