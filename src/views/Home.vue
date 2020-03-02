@@ -3,23 +3,21 @@
     <div class="jumbotron jumbotron-fluid bg-transparent mt-0 mb-0 pb-0">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 mx-auto">
-            <h1 class="text-center title mb-5">
+          <div class="col-md-6 mb-5 mx-auto">
+            <h1 class="text-center title">
               <i>Open Peeps</i>
               <span class="ml-3 alt-text">generator</span>
             </h1>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 mx-auto">
-            <div class="peep-img-container mx-auto mb-5">
+          <div class="col-lg-8 col-xl-6 mx-auto">
+            <div class="peep-img-container mx-auto mb-3">
               <Peep ref="peep" :accessories="accessory" :body="body" :head="head" :facial-hair="facial" :face="face" :transparent="transparentOption" :background="background" />
               <canvas class="d-none" width="600" height="600" ref="canvas"></canvas>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mx-auto">
+          <div class="col-lg-8 col-xl-6 mx-auto">
             <b-form-group label="Transparent background" label-cols-sm="4" label-cols-lg="5">
               <b-form-radio-group class="mt-2" v-model="transparent" :options="options" />
             </b-form-group>
@@ -57,10 +55,10 @@
         </div>
       </div>
     </div>
-    <footer class="mt-4 pt-4 pb-4">
+    <footer class="text-center pt-4 pb-4">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 mx-auto">
+          <div class="col-md-12 mx-auto">
             <p class="mb-2">
               Illustration design by
               <a
@@ -79,7 +77,7 @@
                 target="_blank"
               >openpeeps.com</a>
             </p>
-            <p>
+            <p class="mb-0">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
               <a href="https://github.com/hello-efficiency-inc/openpeeps-generator" target="_blank">Github repo</a>
             </p>
@@ -113,7 +111,7 @@ export default {
   },
   computed: {
     transparentOption () {
-      return this.transparent === 'yes'
+      return this.transparent === 'no'
     },
     accessoryOptions () {
       const options = [
@@ -225,16 +223,19 @@ export default {
   max-height: 500px;
 
   svg {
+    display: block;
+    max-width: 500px;
     max-height: 500px;
+    margin: 0 auto;
 
-    @media (max-width: 800px) {
-      max-height: 350px;
-    }
+    /*@media (max-width: 800px) {*/
+    /*  max-height: 350px;*/
+    /*}*/
   }
 
-  @media (max-width: 800px) {
-    max-height: 350px;
-  }
+  /*@media (max-width: 800px) {*/
+  /*  max-height: 350px;*/
+  /*}*/
 }
 
 .btn-black {
