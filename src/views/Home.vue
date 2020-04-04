@@ -13,41 +13,175 @@
         <div class="row">
           <div class="col-lg-8 col-xl-6 mx-auto">
             <div class="peep-img-container mx-auto mb-3">
-              <Peep ref="peep" :accessories="accessory" :body="body" :head="head" :facial-hair="facial" :face="face" :transparent="transparentOption" :background="background" />
-              <canvas class="d-none" width="600" height="600" ref="canvas"></canvas>
+              <Peep
+                ref="peep"
+                :accessories="accessory"
+                :body="body"
+                :head="head"
+                :facial-hair="facial"
+                :skin-color="skin"
+                :face="face"
+                :transparent="transparentOption"
+                :background="background"
+              />
+              <canvas
+                ref="canvas"
+                class="d-none"
+                width="600"
+                height="600"
+              />
             </div>
           </div>
           <div class="col-lg-8 col-xl-6 mx-auto">
-            <b-form-group label="Transparent background" label-cols-sm="4" label-cols-lg="5">
-              <b-form-radio-group class="mt-2" v-model="transparent" :options="options" />
+            <b-form-group
+              label="Transparent background"
+              label-cols-sm="4"
+              label-cols-lg="5"
+            >
+              <b-form-radio-group
+                v-model="transparent"
+                class="mt-2"
+                :options="options"
+              />
             </b-form-group>
-            <b-form-group label="Background color" v-if="transparent === 'no'" label-cols-sm="4" label-cols-lg="5">
-              <input type="color" class="mt-2" v-model="background" value="#ffffff">
+            <b-form-group
+              v-if="transparent === 'no'"
+              label="Background color"
+              label-cols-sm="4"
+              label-cols-lg="5"
+            >
+              <input
+                v-model="background"
+                type="color"
+                class="mt-2"
+                value="#ffffff"
+              >
             </b-form-group>
-            <b-form-group label="🕶️ Accessories" label-cols-sm="4" label-cols-lg="3">
-              <b-form-select v-model="accessory" :options="accessoryOptions" label-field="Head" />
+            <b-form-group
+              label="🕶️ Accessories"
+              label-cols-sm="4"
+              label-cols-lg="3"
+            >
+              <b-form-select
+                v-model="accessory"
+                :options="accessoryOptions"
+                label-field="Head"
+              />
             </b-form-group>
-            <b-form-group label="Body" label-cols-sm="4" label-cols-lg="3">
-              <b-form-select v-model="body" :options="bodyOptions" label-field="Head" />
+            <b-form-group
+              label="Body"
+              label-cols-sm="4"
+              label-cols-lg="3"
+            >
+              <b-form-select
+                v-model="body"
+                :options="bodyOptions"
+                label-field="Head"
+              />
             </b-form-group>
-            <b-form-group label="Head" label-cols-sm="4" label-cols-lg="3">
-              <b-form-select v-model="head" :options="headOptions" label-field="Head" />
+            <b-form-group
+              label="Head"
+              label-cols-sm="4"
+              label-cols-lg="3"
+            >
+              <b-form-select
+                v-model="head"
+                :options="headOptions"
+                label-field="Head"
+              />
             </b-form-group>
-            <b-form-group label="🤔 😀 Face" label-cols-sm="4" label-cols-lg="3">
-              <b-form-select v-model="face" :options="faceOptions" label-field="Head" />
+            <b-form-group
+              label="🤔 😀 Face"
+              label-cols-sm="4"
+              label-cols-lg="3"
+            >
+              <b-form-select
+                v-model="face"
+                :options="faceOptions"
+                label-field="Head"
+              />
             </b-form-group>
-            <b-form-group label="🧔 Facial hair" label-cols-sm="4" label-cols-lg="3">
-              <b-form-select v-model="facial" :options="facialOptions" label-field="Head" />
+            <b-form-group
+              label="🧔 Facial hair"
+              label-cols-sm="4"
+              label-cols-lg="3"
+            >
+              <b-form-select
+                v-model="facial"
+                :options="facialOptions"
+                label-field="Head"
+              />
+            </b-form-group>
+            <b-form-group
+              label="Skin color"
+              label-cols-sm="4"
+              label-cols-lg="3"
+            >
+              <b-form-select
+                v-model="skin"
+                :options="skinOptions"
+                label-field="Head"
+              />
             </b-form-group>
             <b-form-group>
-              <button type="button" class="btn btn-block btn-black" @click="generateRandom">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg>
+              <button
+                type="button"
+                class="btn btn-block btn-black"
+                @click="generateRandom"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mr-3"
+                ><polyline points="16 3 21 3 21 8" /><line
+                  x1="4"
+                  y1="20"
+                  x2="21"
+                  y2="3"
+                /><polyline points="21 16 21 21 16 21" /><line
+                  x1="15"
+                  y1="15"
+                  x2="21"
+                  y2="21"
+                /><line
+                  x1="4"
+                  y1="4"
+                  x2="9"
+                  y2="9"
+                /></svg>
                 Random
               </button>
             </b-form-group>
             <b-form-group>
-              <button type="button" class="btn btn-block btn-black" @click="saveAsPng">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <button
+                type="button"
+                class="btn btn-block btn-black"
+                @click="saveAsPng"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mr-3"
+                ><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line
+                  x1="12"
+                  y1="15"
+                  x2="12"
+                  y2="3"
+                /></svg>
                 Png
               </button>
             </b-form-group>
@@ -68,7 +202,10 @@
             </p>
             <p class="mb-2">
               Developed by
-              <a href="https://helloefficiency.com" target="_blank">Hello Efficiency</a>
+              <a
+                href="https://helloefficiency.com"
+                target="_blank"
+              >Hello Efficiency</a>
             </p>
             <p class="mb-5">
               Sketch library can be found at
@@ -78,8 +215,22 @@
               >openpeeps.com</a>
             </p>
             <p class="mb-0">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-              <a href="https://github.com/hello-efficiency-inc/openpeeps-generator" target="_blank">Github repo</a>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mr-2"
+              ><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></svg>
+              <a
+                href="https://github.com/hello-efficiency-inc/openpeeps-generator"
+                target="_blank"
+              >Github repo</a>
             </p>
           </div>
         </div>
@@ -102,9 +253,19 @@ export default {
         { text: 'Yes', value: 'yes' },
         { text: 'No', value: 'no' }
       ],
+      skinOptions: [
+        { text: 'Default', value: 'white' },
+        { text: 'Skin variation 1', value: '#FFDBB4' },
+        { text: 'Skin variation 2', value: '#EDB98A' },
+        { text: 'Skin variation 3', value: '#D08B5B' },
+        { text: 'Skin variation 4', value: '#AE5D29' },
+        { text: 'Skin variation 5', value: '#694D3D' },
+        { text: 'Skin variation 6', value: '#FFD11B' }
+      ],
       body: 'BodyTee1',
       head: 'HeadAfro',
       face: 'FaceSmile',
+      skin: 'white',
       accessory: null,
       facial: null
     }

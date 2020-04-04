@@ -4,10 +4,13 @@ module.exports = {
     node: true
   },
   extends: [
-    'plugin:vue/essential',
+    'plugin:vue/recommended',
     '@vue/standard'
   ],
   parserOptions: {
+    ecmaFeatures: {
+      legacyDecorators: true
+    },
     parser: 'babel-eslint'
   },
   rules: {
